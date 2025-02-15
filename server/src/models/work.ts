@@ -21,9 +21,46 @@ export class Work extends Model<WorkAttributes, WorkCreationAttributes> implemen
     assignedVolunteerId: public & number
     assignedVolunteer: public, readonly, Volunteer object as associated Volunteer mode;
   */
+    public id!: number;
+    public name!: string;
+    public status!: string;
+    public description!: string;
+    public assignedVolunteerId!: number;
+  
+    // associated Volunteer model
+    public readonly assignedVolunteer?: Volunteer;
 }
 
 export function WorkFactory(sequelize: Sequelize): typeof Work {
   // TODO: Initialize the Work Model
+  Work.init(
+    {
+      id: {
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
+        primaryKey: true,
+      },
+      name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      status: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      description: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      assignedVolunteerId: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
+      },
+    },
+    {
+      tableName: 'work',
+      sequelize,
+    }
+  );
   return Work;
 }

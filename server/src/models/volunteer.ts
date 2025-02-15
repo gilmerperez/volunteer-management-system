@@ -13,9 +13,28 @@ export class Volunteer extends Model<VolunteerAttributes, VolunteerCreationAttri
     id: public & number
     volunteerName: public & string
   */
+    public id!: number;
+    public volunteerName!: string;
 }
 
 export function VolunteerFactory(sequelize: Sequelize): typeof Volunteer {
   // TODO: Initialize the Volunteer Model
+  Volunteer.init(
+    {
+      id: {
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
+        primaryKey: true,
+      },
+      volunteerName: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+    },
+    {
+      tableName: 'volunteer',
+      sequelize,
+    }
+  );
   return Volunteer;
 }
