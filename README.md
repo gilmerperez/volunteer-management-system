@@ -1,90 +1,127 @@
-# Module 13 Mini-Project: Volunteer Management System
+# Volunteer Management System
 
-In this Mini-Project, you'll work with a group to complete a volunteer management system that provides full CRUD application by integrating Sequelize ORM and connecting an Express application with a React application.
+## Description
 
-## Instructions
+The Volunteer Management System is a full-stack CRUD (Create, Read, Update, Delete) application designed to help volunteer organizers efficiently manage volunteers and their assigned tasks. This system leverages Sequelize ORM (Object-Relational Mapping) to interact with a relational database, ensuring robust data management. The backend is built with Express.js, while the frontend is developed using React, providing a seamless and responsive user experience.
 
-The completed app should meet the following criteria:
+The application addresses the challenge of organizing and tracking volunteer activities by allowing users to store, update, and retrieve information about volunteers and their assigned tasks. The system establishes a one-to-many relationship between volunteers and tasks, enabling organizers to assign multiple tasks to a single volunteer. This structure ensures data integrity and simplifies the management of volunteer workloads.
 
-* As a volunteer organizer for a volunteer management system, I want to store information about volunteers and volunteer work in a relational database by using an ORM for data management. 
+Key functionalities include adding new volunteers, updating volunteer details, assigning tasks, and tracking task progress. The system is designed to be intuitive and user-friendly, making it an ideal tool for organizations that rely on volunteer contributions.
 
-* As a volunteer organizer for a volunteer management system, I want to format the `Volunteers` and `Work` models.
+## Table of Contents
 
-* As a volunteer organizer for a volunteer management system, I want to create a one-to-many association between `Volunteers` and `Work` tables.
+- [Usage](#usage)
+- [Mock-Up](#mock-up)
+- [Instructions](#instructions)
+- [Key Features](#key-features)
+- [Technology Stack](#technology-stack)
+- [Additional Resources](#additional-resources)
 
-* As a volunteer organizer for a volunteer management system, I want to update the routes directory so that CRUD data is managed and passed to the routers directory to forward data.
+## Usage
 
-* As a volunteer organizer for a volunteer management system, I want to ensure that the data from the server side creates, reads, updates, and deletes to the client side.
+To set up and run the application locally, follow these steps:
+
+1. Install Dependencies
+
+    ```
+    npm install
+    ```
+
+2. Create a `.env` file in the server directory using the provided `.env.EXAMPLE` file and update the database connection details.
+
+3. Populate the database with initial data:
+
+    ```
+    npm run seed
+    ```
+
+4. Run both the server and client side simultaneously:
+
+    ```
+    npm run start:dev
+    ```
+
+5. To install dependencies, seed the database, and build the project all at once, run:
+
+    ```
+    npm run dev
+    ```
 
 ## Mock-Up
 
 The following images show the web application's appearance and functionality:
 
+**Homepage:** Displays a list of volunteer jobs, their progress, and assigned volunteers.
 ![The volunteer management system's homepage displays the list of volunteer job, their progress, and the volunteer assigned to each particular job.](./images/13-01-vms_homepage.png)
 
+**Volunteer List:** Shows all registered volunteers.
 ![After clicking on See All Volunteers, a list of volunteers is displayed.](./images/13-02-vms_volunteers-list.png)
 
+**Add New Volunteer:** Allows adding a new volunteer to the database.
 ![After clicking on Add New Volunteer, the user is sent to an Add New Volunteer Form, where they can add a new volunteer's name.](./images/13-03-vms_add-volunteer.png)
 
+**Edit Volunteer:** Enables editing a volunteer's information.
 ![After clicking on the Edit button for a volunteer, their name can be updated to correct for any spelling errors.](./images/13-04-vms_edit-volunteer.png)
 
+**Edit Work:** Allows updating details of assigned volunteer jobs.
 ![After clicking on the Edit button for a volunteer job, the specific work information can be updated as needed.](./images/13-05-vms_edit-work.png)
 
-## Getting Started
+## Instructions
 
-You'll primarily be working in the `Develop/server` directory, as well as updating the `Develop/client/vite.config.js` file to connect the server-side and client-side directories.
+1. Clone the repository:
 
-The `Developer/server/src/models` and `Developer/server/src/routes` content must be updated.
+    ```
+    git clone <repository-url>
+    ```
 
-Look for the `TODO`s to help you determine which sections of the application must be updated.
+2. Navigate into the project directory:
 
-You'll also need to provide your database information in a `.env` file. An example `.env` file, named `.env.EXAMPLE`, is provided in the `server` directory.
+    ```
+    git clone <repository-url>
+    ```
 
-To run the application, run `npm i` and `npm run seed` in the root directory of the `Develop` folder after resolving the Sequelize errors. 
+3. Follow the Usage section for installation and setup.
 
-To run both the server side and the client side simultaneously, run `npm run start:dev`.
+4. Ensure the database is configured correctly.
 
-If you want to run all of the installation, seeding, and building at once, run `npm run dev`.
+5. Start the development server using npm run start:dev.
 
-## 📝 Notes
+## Key Features
 
-The properties for the Volunteer model and Work model are as follows:
+- **Volunteer & Work Management:** Retrieve movie details from the OMDb API.
 
-* Volunteer
+- **Database Integration:** Save and retrieve movies from localStorage.
 
-  * id: Integer
+- **Express API Routing:** Organize films into "Seen It" and "Watch" lists.
 
-  * name: String
+- **One-to-Many Relationship:** Remove movies from lists with a single click.
 
-* Work/Volunteer Job
+- **Full CRUD Functionality:** Access the app online without needing a local setup.
 
-  * id: Integer
+- **React-Based UI:** Ensures a modern, dynamic user experience.
 
-  * name: String
+- **Efficient State Management:** React state hooks and API calls ensure real-time updates.
 
-  * status: String
+## Technology Stack
 
-  * description: String
+- **React:** Builds the front-end interface for user interaction.
 
-  * assignedVolunteerId: Integer (associated with Volunteer as ONE-TO-MANY)
+- **Express:** Handles server-side logic and API requests.
 
-* Note that for one Volunteer, there can be many Works/Volunteer Jobs.
+- **Sequelize ORM:** Manages database interactions efficiently.
 
-Refer to the documentation:
+- **PostgreSQL:** Stores structured volunteer and work data.
 
-* [Sequelize Documentation](https://sequelize.org/)
+- **Node.js:** Provides the runtime environment for executing JavaScript on the server.
 
-* [Sequelize Documentation on TypeScript](https://sequelize.org/docs/v6/other-topics/typescript/)
+- **Vite:** Configures and optimizes the front-end build process.
 
-* [Vite Documentation on Configuring Vite](https://vitejs.dev/config/)
+- **Dotenv:** Manages environment variables for secure configuration.
 
-## 💡 Hints
+## Additional Resources
 
-* How can the documentation give us an idea of the data we'll get back?
+- Guide on [Vite Configuration](https://vitejs.dev/config/)
 
-* How can we use proxies to connect the server-side and client-side content for local testing?
+- Read the [Sequelize Documentation](https://sequelize.org/)
 
-* How can we use Sequelize's methods to streamline CRUD functionalities?
-
----
-© 2024 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
+- Learn more about the [Sequelize TypeScript Guide](https://sequelize.org/docs/v6/other-topics/typescript/)
