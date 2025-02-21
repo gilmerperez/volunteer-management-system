@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "install": "^0.13.0",
+    "pg": "^8.13.3",
     "sequelize": "^6.37.5"
   }
 }
